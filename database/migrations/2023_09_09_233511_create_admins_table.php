@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->date('birthday')->nullable();
-            $table->integer('address_id')->nullable();
+            $table->foreignId('address_id')->references('id')->on('addres')->onDelete('cascade');
             $table->string('phone')->unique()->nullable();
             $table->string('email')->unique()->nullable();
             $table->string('join_date');
@@ -28,11 +28,7 @@ return new class extends Migration
             $table->string('avatar')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            
-            $table->foreign('address_id')->references('id')->on('addres')->onDelete('cascade');
-
             $table->rememberToken();
-            
             $table->timestamps();
         });
     }

@@ -5,13 +5,13 @@
     <div id="sidebar-menu" class="sidebar-menu">
     <ul>
     <li class="menu-title">
-    <span><a href="{{url('test')}}"> Main</span></a>
+    <span> Main</span></a>
     </li>
     <li class="submenu">
     <a href="#"><i class="la la-dashboard"></i> <span> Dashboard</span> <span class="menu-arrow"></span></a>
     <ul style="display: none;">
     <li><a class="active" href="">Admin Dashboard</a></li>
-    <li><a href="{{route('test')}}">Employee Dashboard</a></li>
+    <li><a href="">Employee Dashboard</a></li>
     </ul>
     </li>
     <li class="submenu">
@@ -54,7 +54,7 @@
     </ul>
     </li>
     <li>
-    <a href="clients.html"><i class="la la-users"></i> <span>Clients</span></a>
+        <a href="{{route('All.Category')}}"><i class="la la-user-secret"></i> <span>Category</span></a>
     </li>
     <li class="submenu">
     <a href="#"><i class="la la-rocket"></i> <span> Projects</span> <span class="menu-arrow"></span></a>
@@ -65,7 +65,7 @@
     </ul>
     </li>
     <li>
-    <a href="leads.html"><i class="la la-user-secret"></i> <span>Leads</span></a>
+    <a href="{{route('All.Category')}}"><i class="la la-user-secret"></i> <span>Leads</span></a>
     </li>
     <li>
     <a href="tickets.html"><i class="la la-ticket"></i> <span>Tickets</span></a>

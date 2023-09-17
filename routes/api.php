@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Api\Auth\RegiterController;
+use App\Http\Controllers\Api\User\CategoryController;
+
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,9 +24,17 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware('checklang')->prefix('{locale}')->group( function(){
+
+    /// Auth User
     Route::get('All/Addres',[RegiterController::class,'getallAddres']);
     Route::post('/register/user',[RegiterController::class,'register']);
     Route::post('/login/user',[RegiterController::class,'login']);
+
+    /// End Auth User
+
+    /// Categoure Category
+    Route::get('All/Cat',[CategoryController::class,'index']);
+
 });
 
 

@@ -40,9 +40,7 @@
 
 <a id="toggle_btn" href="javascript:void(0);">
 <span class="bar-icon">
-<span></span>
-<span></span>
-<span></span>
+
 </span>
 </a>
 
@@ -58,19 +56,8 @@
 
 
 @yield('content')
-<div class="page-wrapper">
 
-    <div class="content container-fluid">
-    
-    <div class="page-header">
-    <div class="row">
-    <div class="col-sm-12">
-    <h3 class="page-title">Welcome Admin!</h3>
-    <ul class="breadcrumb">
-    <li class="breadcrumb-item active">Dashboard</li>
-</div>
 
-</div>
 
 
 <script data-cfasync="false" src="../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>

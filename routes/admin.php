@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Auth\AuthController;
+use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,14 +34,15 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin'], function () {
     
     
     ################################## categories routes ######################################
-    Route::group(['prefix' => 'main_categories'], function () {
-        Route::get('/', [MainCategoriesController::class,'index'])->name('admin.maincategories');
+    Route::group(['prefix' => 'categories'], function () {
+        Route::get('/', [CategoryController::class,'index'])->name('All.Category');
         Route::get('create', [MainCategoriesController::class,'create'])->name('admin.maincategories.create');
         Route::post('store', [MainCategoriesController::class,'store'])->name('admin.maincategories.store');
         Route::get('edit/{id}',[MainCategoriesController::class,'edit'])->name('admin.maincategories.edit');
         Route::post('update/{id}', [MainCategoriesController::class,'update'])->name('admin.maincategories.update');
         Route::get('delete/{id}', [MainCategoriesController::class,'destroy'])->name('admin.maincategories.delete');
     });
+
 
     ################################## end categories    #######################################
 

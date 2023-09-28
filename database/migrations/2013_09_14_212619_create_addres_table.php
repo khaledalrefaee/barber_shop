@@ -16,15 +16,15 @@ return new class extends Migration
     {
         Schema::create('addres', function (Blueprint $table) {
             $table->id();
-            $table->string('name_en');
-            $table->string('name_ar');
+            $table->string('name');
+
             $table->timestamps();
         });
 
         DB::table('addres')->insert([
-            ['name_en'=>'mohugrin','name_ar'=>'مهاجرين'],
-            ['name_en'=>'Dmer','name_ar'=>'دمر'],
-           
+            ['name'=>'مهاجرين'],
+            ['name'=>'دمر'],
+
         ]);
     }
 

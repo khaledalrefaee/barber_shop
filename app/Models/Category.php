@@ -11,4 +11,10 @@ class Category extends Model
 
     protected $guarded = [];
 
+
+    public function salon(){
+
+    return $this->hasMany(Salon::class,'address_id','id');
+
+    }
 }

@@ -16,15 +16,14 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name_en');
-            $table->string('name_ar');
+            $table->string('name');
             $table->string('avter')->nullable();
             $table->timestamps();
         });
 
         DB::table('categories')->insert([
-            ['name_en'=>'Women is Salon','name_ar'=>'صالون نسائي'],
-            ['name_en'=>'DmMen is Saloner','name_ar'=>'صالون رجالي'],
+            ['name'=>'صالون نسائي'],
+            ['name'=>'صالون رجالي'],
         ]);
     }
 

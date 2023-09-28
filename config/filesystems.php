@@ -43,6 +43,25 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
+        'category' => [
+            'driver' => 'local',
+            'root' => public_path('back/assets/imag/category'),
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
+        ],
+
+
+
+
+        'salon' => [
+            'driver' => 'local',
+            'root' => public_path('back/assets/imag/salon'),
+            'url' => env('APP_URL') . '/storage',
+            'visibility' => 'public',
+        ],
+
+
+
 
         's3' => [
             'driver' => 's3',

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Auth\AuthController;
 use App\Http\Controllers\Admin\Category\CategoryController;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\Admin\Salon\SalonController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,10 +19,10 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::group(['prefix' => 'admin' ], function () {    
+Route::group(['prefix' => 'admin' ], function () {
     Route::get('login', [AuthController::class,'login'])->name('admin.login');
     Route::post('login', [AuthController::class,'postLogin'])->name('admin.post.login');
-    Route::get('logout', [AuthController::class,'logout'])->name('admin.logout');        
+    Route::get('logout', [AuthController::class,'logout'])->name('admin.logout');
 });
 
 
@@ -30,22 +31,29 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin'], function () {
 
 
     Route::get('/', [HomeController::class,'index'])->name('admin.dashboard');  // the first page admin visits if authenticated
-    
-    
-    
+
+
+
     ################################## categories routes ######################################
     Route::group(['prefix' => 'categories'], function () {
         Route::get('/', [CategoryController::class,'index'])->name('All.Category');
-        Route::get('create', [MainCategoriesController::class,'create'])->name('admin.maincategories.create');
-        Route::post('store', [MainCategoriesController::class,'store'])->name('admin.maincategories.store');
-        Route::get('edit/{id}',[MainCategoriesController::class,'edit'])->name('admin.maincategories.edit');
-        Route::post('update/{id}', [MainCategoriesController::class,'update'])->name('admin.maincategories.update');
-        Route::get('delete/{id}', [MainCategoriesController::class,'destroy'])->name('admin.maincategories.delete');
+        Route::post('store', [CategoryController::class,'store'])->name('store.category');
+        Route::put('/categories/{id}', [CategoryController::class,'update'])->name('update.category');
+
+        Route::get('delete/{id}', [CategoryController::class,'delete'])->name('delete.category');
     });
 
 
     ################################## end categories    #######################################
 
+    ################################## salon routes ######################################
+    Route::group(['prefix' => 'Salon'], function () {
+        Route::get('/', [SalonController::class,'index'])->name('All.Salon');
+        Route::post('store', [SalonController::class,'store'])->name('store.Salon');
+        Route::put('/categories/{id}', [CategoryController::class,'update'])->name('update.Salon');
 
-    
+        Route::get('delete/{id}', [CategoryController::class,'delete'])->name('delete.Salon');
+    });
+
+
 });

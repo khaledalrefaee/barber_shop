@@ -1,44 +1,37 @@
-<div class="col-auto float-right ml-auto">
-    <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_leave"><i class="fa fa-plus"></i> Add Category</a>
-</div>
-
-
-<div id="add_leave" class="modal custom-modal fade" role="dialog">
+<div class="modal custom-modal fade" id="add_categories" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-    <div class="modal-header">
-    <h5 class="modal-title">Add Category</h5>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-    </button>
-    </div>
-    <div class="modal-body">
-    <form action="" method="POST">
-        @csrf
-    <div class="form-group">
-    
-    </div>
-    <div class="form-group">
-    <label>Nmae English <span class="text-danger">*</span></label>
-    <div class="">
-        <input class="form-control" name="name_en" value="{{old('name_en')}}" type="text">
-    </div>
-    </div>
-    <div class="form-group">
-    <label>Name Arabic <span class="text-danger">*</span></label>
-    <div class="">
-    <input class="form-control" name="name_ar" value="{{old('name_ar')}}" type="text">
-    </div>
-    </div>
-    <div class="form-group">
-    <label>Image <span class="text-danger">*</span></label>
-    <input class="form-control" type="file">
-    </div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Categories</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="{{route('store.category')}}" enctype="multipart/form-data" >
+                    @csrf
+                    <div class="form-group">
+                        <label>Categories Name <span class="text-danger">*</span></label>
+                        <input class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" name="name" type="text">
+                        @error('name')
+                        <div class="invalid-feedback" style="color: #8B0000;">{{ $message }}</div>
+                        @enderror
+                        <br>
 
-    <button class="btn btn-primary submit-btn">Submit</button>
+                        <label>Categories avter <span class="text-danger">*</span></label>
+                        <input   class="form-control @error('avter') is-invalid @enderror"  value="{{ old('avter') }}" name="avter" type="file">
+                        @error('avter')
+                        <div class="invalid-feedback" style="color: #8B0000;">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+
+
+                    <div class="submit-section">
+                        <button class="btn btn-primary submit-btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    </form>
-    </div>
-    </div>
-    </div>
-    </div>
+</div>

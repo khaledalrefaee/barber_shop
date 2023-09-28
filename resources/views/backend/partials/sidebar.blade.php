@@ -56,6 +56,9 @@
     <li>
         <a href="{{route('All.Category')}}"><i class="la la-user-secret"></i> <span>Category</span></a>
     </li>
+        <li>
+            <a href="{{route('All.Salon')}}"><i class="la la-user-secret"></i> <span>Salons</span></a>
+        </li>
     <li class="submenu">
     <a href="#"><i class="la la-rocket"></i> <span> Projects</span> <span class="menu-arrow"></span></a>
     <ul style="display: none;">
@@ -72,7 +75,7 @@
     </li>
     <li class="menu-title">
     <span>HR</span>
-    </li> 
+    </li>
     <li class="submenu">
     <a href="#"><i class="la la-files-o"></i> <span> Sales </span> <span class="menu-arrow"></span></a>
     <ul style="display: none;">
@@ -287,3 +290,4 @@
     </div>
     </div>
     </div>
+

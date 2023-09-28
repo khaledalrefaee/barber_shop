@@ -21,32 +21,10 @@
 
 <link rel="stylesheet" href="{{asset('back/assets/css/style.css')}}">
 
-<!--[if lt IE 9]>
-			<script src="assets/js/html5shiv.min.js"></script>
-			<script src="assets/js/respond.min.js"></script>
-		<![endif]-->
 </head>
 <body>
 
-<div class="main-wrapper">
 
-<div class="header">
-
-<div class="header-left">
-<a href="index.html" class="logo">
-<img src="{{asset('back/assets/img/logo.png')}}" width="40" height="40" alt="">
-</a>
-</div>
-
-<a id="toggle_btn" href="javascript:void(0);">
-<span class="bar-icon">
-
-</span>
-</a>
-
-<div class="page-title-box">
-<h3>Admin Dashboard</h3>
-</div>
 
 
 @include('backend.partials.header')
@@ -54,9 +32,9 @@
 @include('backend.partials.sidebar')
 
 
-
-@yield('content')
-
+<main>
+    @yield('content')
+</main>
 
 
 
@@ -72,6 +50,10 @@
 <script src="{{asset('back/assets/plugins/raphael/raphael.min.js')}}"></script>
 <script src="{{asset('back/assets/js/chart.js')}}"></script>
 
+
+
 <script src="{{asset('back/assets/js/app.js')}}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDG9moWiWFp4yE6PDUWvUbDUQYRP-8ltRg&libraries=places&callback=initMap" async defer></script>
+
 </body>
 </html>

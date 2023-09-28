@@ -17,16 +17,16 @@ class RegiterController extends Controller
 {
     public function getallAddres()
     {
-        $addres = Addres::select('id','name_' . app()->getLocale() . ' as name' ) -> get();
-        
+        $addres = Addres::select('id','name') -> get();
+
         if ($addres->isEmpty()) {
             return response(['data' => 'No  Addres found' ,'status'=>false]);
         } else {
             return response()->json(['data' => $addres ,'status'=>true]);
         }
-        
+
     }
-    
+
     public function register(Request $request){
         $validator =  Validator::make($request->all(), [
             'name' => 'required|string|max:255',
@@ -34,11 +34,11 @@ class RegiterController extends Controller
             'phone' => 'required|string|max:255|unique:users',
             'password' => 'required|string|min:6',
         ]);
-    
+
         if ($validator->fails()) {
             return response()->json(['message' => 'Unauthorized','status'=>false], 401);
         }
-    
+
         $dt = Carbon::now();
         $todayDate =$dt->toDayDateTimeString();
 
@@ -49,17 +49,17 @@ class RegiterController extends Controller
             'join_date' =>$todayDate,
             'password' => Hash::make($request->password),
         ]);
-    
+
         return response()->json(['message' => 'User registered successfully','data'=>$user ,'status'=>true], 201);
-    
+
     }
 
     public function login(Request $request)
     {
-      
+
 
         $credentials = $request->only('phone', 'password');
-    
+
         if (!$token = JWTAuth::attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized','status'=>false], 401);
         }

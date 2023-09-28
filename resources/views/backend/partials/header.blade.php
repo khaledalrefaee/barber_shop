@@ -1,5 +1,24 @@
+<div class="main-wrapper">
 
-<ul class="nav user-menu">
+    <div class="header">
+
+        <div class="header-left">
+
+            <a href="index.html" class="logo">
+                <img src="{{asset('back/assets/img/logo.png')}}" width="40" height="40" alt="">
+            </a>
+        </div>
+
+        <a id="toggle_btn" href="javascript:void(0);">
+<span class="bar-icon">
+
+</span>
+        </a>
+
+        <div class="page-title-box">
+            <h3>Admin Dashboard</h3>
+        </div>
+    <ul class="nav user-menu">
 
     <li class="nav-item">
     <div class="top-nav-search">
@@ -12,8 +31,8 @@
     </form>
     </div>
     </li>
-    
-    
+
+
     <li class="nav-item dropdown has-arrow flag-nav">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">
     <img src="{{asset('back/assets/img/flags/us.png')}}" alt="" height="20"> <span>English</span>
@@ -33,8 +52,8 @@
     </a>
     </div>
     </li>
-    
-    
+
+
     <li class="nav-item dropdown">
     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
     <i class="fa fa-bell-o"></i> <span class="badge badge-pill">3</span>
@@ -118,8 +137,8 @@
     </div>
     </div>
     </li>
-    
-    
+
+
     <li class="nav-item dropdown">
     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
     <i class="fa fa-comment-o"></i> <span class="badge badge-pill">8</span>
@@ -223,7 +242,7 @@
     </div>
     </div>
     </li>
-    
+
     <li class="nav-item dropdown has-arrow main-drop">
     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
     <span class="user-img"><img src="{{asset('back/assets/img/profiles/avatar-21.jpg')}}" alt="">
@@ -237,8 +256,8 @@
     </div>
     </li>
     </ul>
-    
-    
+
+
     <div class="dropdown mobile-user-menu">
     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
     <div class="dropdown-menu dropdown-menu-right">
@@ -247,5 +266,6 @@
     <a class="dropdown-item" href="login.html">Logout</a>
     </div>
     </div>
-    
+
     </div>
+</div>

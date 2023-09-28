@@ -4,6 +4,8 @@ use App\Http\Controllers\Api\Auth\RegiterController;
 use App\Http\Controllers\Api\User\CategoryController;
 
 
+use App\Http\Controllers\Api\User\Salon\SalonController;
+use App\Http\Controllers\Api\User\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::middleware('checklang')->prefix('{locale}')->group( function(){
+
 
     /// Auth User
     Route::get('All/Addres',[RegiterController::class,'getallAddres']);
@@ -34,6 +36,19 @@ Route::middleware('checklang')->prefix('{locale}')->group( function(){
 
     /// Categoure Category
     Route::get('All/Cat',[CategoryController::class,'index']);
+    Route::get('show/salon/{id}',[CategoryController::class,'show_salon']);
+
+    Route::get('All/Salon',[SalonController::class,'index']);
+    Route::get('location/Salon/{id}',[SalonController::class,'location_By_salon']);
+
+
+Route::middleware(['jwt.auth'])->group(function () {
+
+    Route::get('/profile',[UserController::class,'profile']);
+    Route::get('/post/{id}',[PostController::class,'show']);
+    Route::post('/posts',[PostController::class,'store']);
+    Route::post('/post/{id}',[PostController::class,'update']);
+    Route::post('/posts/{id}',[PostController::class,'destroy']);
 
 });
 

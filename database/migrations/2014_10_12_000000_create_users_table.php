@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
 
-    
+
     /**
      * Run the migrations.
      *
@@ -27,6 +27,7 @@ return new class extends Migration
             $table->foreignId('address_id')->references('id')->on('addres')->onDelete('cascade');
             $table->string('join_date');
             $table->text('avter')->nullable();
+            $table->boolean('status')->nullable()->default(true);
             $table->timestamp('phone_verified_at')->nullable();
             $table->rememberToken();
 
@@ -37,7 +38,7 @@ return new class extends Migration
         DB::table('users')->insert([
             ['rec_id'=>'KHM_0000000001','name'=>'khaled','phone'=>'962812838','password'=>Hash::make('123123'),'address_id'=>1,'join_date'=>$todayDate],
             ['rec_id'=>'KHM_0000000002','name'=>'mohamed','phone'=>'947561302','password'=>Hash::make('123123'),'address_id'=>1,'join_date'=>$todayDate],
-           
+
         ]);
     }
 

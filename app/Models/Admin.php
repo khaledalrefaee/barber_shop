@@ -13,4 +13,8 @@ class Admin extends Authenticatable
     use AutoGenerateRecId;
 
     protected $guarded = [];
+
+    public function salon(){
+        return $this->hasMany(Salon::class,'admin_id','id');
+    }
 }
